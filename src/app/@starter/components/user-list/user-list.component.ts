@@ -11,10 +11,7 @@ export class UserListComponent {
     userService = inject(UserService);
     queryClient = inject(QueryClient);
 
-    query = injectQuery(() => ({
-        queryKey: ['users'],
-        queryFn: () => this.userService.getUsers(),
-    }));
+    users = injectQuery(()=>this.userService.getAllUsers());
 
   
 }
