@@ -1,5 +1,7 @@
 # angular-starter
+
 Angular starter, tailwind css, preline.co and NGRX and Angular Tanstack Query and Tanstack Table
+
 # AngularStarter
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
