@@ -6,3 +6,5 @@ export const loadUsers = createAction("[User List Page] Load Users");
 export const loadUsersSuccess = createAction("[User List Page] Load Users Success", (users: Array<User>) => ({ users }));
 
 export const loadUsersFailure = createAction("[User List Page] Load Users Failure", (error: string) => ({ error }));
+
+export const resetUsersState = createAction("[User List Page] Reset Users State");

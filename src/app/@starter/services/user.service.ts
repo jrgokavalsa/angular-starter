@@ -15,4 +15,7 @@ export class UserService{
         return this.#http.get<Array<User>>("https://jsonplaceholder.typicode.com/users").pipe(delay(2000));
     }
     
+    getUserById(id: number): Observable<User>{
+        return this.#http.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`).pipe(delay(2000));
+    }
 }

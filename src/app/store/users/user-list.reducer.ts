@@ -37,6 +37,11 @@ export const userListReducer = createReducer(initialUsersState,
         ...state,
         loading: false,
         error
+    })),
+    on(UserListPageActions.resetUsersState, (state) => ({
+        ...state,
+        users: [],
+        loading: false,
+        error: null
     }))
-
 )
