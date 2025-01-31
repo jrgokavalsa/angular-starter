@@ -1,7 +1,11 @@
 export interface User {
     id: number;
     name: string;
+    role: string;
+    organization: string;
     email: string;
-    phone: string;
-    website:string;
+    avatar: string;
+    status: string;
+    createdOn: Date;
+    portfolio: number;
 }

@@ -1,0 +1,478 @@
+<!-- Table Section -->
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <!-- Card -->
+    <div class="flex flex-col">
+        <div class="-m-1.5 overflow-x-auto">
+            <div class="inline-block min-w-full p-1.5 align-middle">
+                <div
+                    class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
+                >
+                    <!-- Header -->
+                    <div
+                        class="grid gap-3 border-b border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between"
+                    >
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                Users
+                            </h2>
+                            <p class="text-sm text-gray-600">
+                                Add users, edit and more.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex gap-x-2">
+                                <a
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-red-500 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    (click)="onDelete()"
+                                >
+                                    <svg
+                                        class="size-4 shrink-0"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M3 6h18" />
+                                        <path
+                                            d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"
+                                        />
+                                        <path
+                                            d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"
+                                        />
+                                        <line x1="10" x2="10" y1="11" y2="17" />
+                                        <line x1="14" x2="14" y1="11" y2="17" />
+                                    </svg>
+                                    Delete ({{
+                                        selectionUsers.selected.length
+                                    }})
+                                </a>
+                                <a
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    href="#"
+                                >
+                                    View all
+                                </a>
+
+                                <a
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    [routerLink]="['/users', 'new']"
+                                >
+                                    <svg
+                                        class="size-4 shrink-0"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M5 12h14" />
+                                        <path d="M12 5v14" />
+                                    </svg>
+                                    Add user
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Header -->
+
+                    @if (users.isPending()) {
+                        <div
+                            class="flex min-h-[400px] flex-auto flex-col items-center justify-center p-4 md:p-5"
+                        >
+                            <div class="flex justify-center">
+                                <div
+                                    class="inline-block size-6 animate-spin rounded-full border-[3px] border-current border-t-transparent text-blue-600 dark:text-blue-500"
+                                    role="status"
+                                    aria-label="loading"
+                                >
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (users.isError()) {
+                        <div
+                            class="flex min-h-[400px] flex-auto flex-col items-center justify-center p-4 md:p-5"
+                        >
+                            <div
+                                class="flex flex-row items-center gap-x-2 gap-y-2 text-red-500"
+                            >
+                                <svg
+                                    class="size-6 text-red-500"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="12" />
+                                    <line x1="12" y1="16" x2="12" y2="16" />
+                                </svg>
+                                <div class="flex flex-col gap-x-2">
+                                    <h3
+                                        class="text-lg font-semibold text-gray-800"
+                                    >
+                                        Error
+                                    </h3>
+                                    <p class="text-sm text-gray-600">
+                                        Something went wrong. Please try again
+                                        later.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (users.data(); as users) {
+                        <!-- Table -->
+                        <table class="min-w-full divide-y">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th
+                                        scope="col"
+                                        class="py-3 ps-6 text-start"
+                                    >
+                                        <label
+                                            for="hs-at-with-checkboxes-main"
+                                            class="flex"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                                id="hs-at-with-checkboxes-main"
+                                                (change)="
+                                                    $event
+                                                        ? toggleAllRows()
+                                                        : null
+                                                "
+                                                [checked]="
+                                                    selectionUsers.hasValue() &&
+                                                    isAllRowsSelected()
+                                                "
+                                            />
+                                            <span class="sr-only"
+                                                >Checkbox</span
+                                            >
+                                        </label>
+                                    </th>
+
+                                    <th
+                                        scope="col"
+                                        class="py-3 pe-6 ps-6 text-start lg:ps-3 xl:ps-0"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                                            >
+                                                Name
+                                            </span>
+                                        </div>
+                                    </th>
+
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-3 text-start"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                                            >
+                                                Position
+                                            </span>
+                                            <svg
+                                                class="text-black-800 size-3.5 shrink-0"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            >
+                                                <path d="m7 15 5 5 5-5" />
+                                                <path d="m7 9 5-5 5 5" />
+                                            </svg>
+                                        </div>
+                                    </th>
+
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-3 text-start"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                                            >
+                                                Status
+                                            </span>
+                                        </div>
+                                    </th>
+
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-3 text-start"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                                            >
+                                                Portfolio
+                                            </span>
+                                        </div>
+                                    </th>
+
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-3 text-start"
+                                    >
+                                        <div class="flex items-center gap-x-2">
+                                            <span
+                                                class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                                            >
+                                                Created
+                                            </span>
+                                        </div>
+                                    </th>
+
+                                    <th
+                                        scope="col"
+                                        class="px-6 py-3 text-end"
+                                    ></th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y divide-gray-200">
+                                @for (user of users; track user.id) {
+                                    <tr>
+                                        <td class="size-px whitespace-nowrap">
+                                            <div class="py-3 ps-6">
+                                                <label
+                                                    for="hs-at-with-checkboxes-{{
+                                                        user.id
+                                                    }}"
+                                                    class="flex"
+                                                >
+                                                    <input
+                                                        type="checkbox"
+                                                        class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                                        id="hs-at-with-checkboxes-{{
+                                                            user.id
+                                                        }}"
+                                                        (click)="
+                                                            $event.stopPropagation()
+                                                        "
+                                                        (change)="
+                                                            $event
+                                                                ? selectionUsers.toggle(
+                                                                      user
+                                                                  )
+                                                                : null
+                                                        "
+                                                        [checked]="
+                                                            selectionUsers.isSelected(
+                                                                user
+                                                            )
+                                                        "
+                                                    />
+                                                    <span class="sr-only"
+                                                        >Checkbox</span
+                                                    >
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="size-px whitespace-nowrap">
+                                            <div
+                                                class="py-3 pe-6 ps-6 lg:ps-3 xl:ps-0"
+                                            >
+                                                <div
+                                                    class="flex items-center gap-x-3"
+                                                >
+                                                    <img
+                                                        class="inline-block size-[38px] rounded-full"
+                                                        src="{{ user.avatar }}"
+                                                        alt="Avatar"
+                                                    />
+                                                    <div class="grow">
+                                                        <span
+                                                            class="block text-sm font-semibold text-gray-800"
+                                                            >{{
+                                                                user.name
+                                                            }}</span
+                                                        >
+                                                        <span
+                                                            class="block text-sm text-gray-500"
+                                                            >{{
+                                                                user.email
+                                                            }}</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="h-px w-72 whitespace-nowrap">
+                                            <div class="px-6 py-3">
+                                                <span
+                                                    class="block text-sm font-semibold text-gray-800"
+                                                    >{{ user.role }}</span
+                                                >
+                                                <span
+                                                    class="block text-sm text-gray-500"
+                                                    >{{
+                                                        user.organization
+                                                    }}</span
+                                                >
+                                            </div>
+                                        </td>
+                                        <td class="size-px whitespace-nowrap">
+                                            <div class="px-6 py-3">
+                                                <user-badge
+                                                    [userStatus]="user.status"
+                                                />
+                                            </div>
+                                        </td>
+                                        <td class="size-px whitespace-nowrap">
+                                            <div class="px-6 py-3">
+                                                <div
+                                                    class="flex items-center gap-x-3"
+                                                >
+                                                    <span
+                                                        class="text-xs text-gray-500"
+                                                        >{{
+                                                            user.portfolio
+                                                        }}/5</span
+                                                    >
+                                                    <div
+                                                        class="flex h-1.5 w-full overflow-hidden rounded-full bg-gray-200"
+                                                    >
+                                                        <div
+                                                            class="flex flex-col justify-center overflow-hidden bg-gray-800"
+                                                            role="progressbar"
+                                                            style="width: 25%"
+                                                            aria-valuenow="25"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100"
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="size-px whitespace-nowrap">
+                                            <div class="px-6 py-3">
+                                                <span
+                                                    class="text-sm text-gray-500"
+                                                    >{{ user.createdOn }}</span
+                                                >
+                                            </div>
+                                        </td>
+                                        <td class="size-px whitespace-nowrap">
+                                            <div class="px-6 py-1.5">
+                                                <a
+                                                    class="inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline focus:underline focus:outline-none"
+                                                    routerLink="{{ user.id }}"
+                                                >
+                                                    Edit
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- End Table -->
+                    }
+                    <!-- Footer -->
+                    <div
+                        class="grid gap-3 border-t border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between"
+                    >
+                        <div class="inline-flex items-center gap-x-2">
+                            <p class="text-sm text-gray-600">Showing:</p>
+                            <div class="max-w-sm space-y-3">
+                                <select
+                                    class="block w-full rounded-lg border-gray-200 px-3 py-2 pe-9 text-sm outline outline-1 focus:border-blue-500 focus:ring-blue-500"
+                                    (change)="onLimitChange($event)"
+                                    id="pageSize"
+                                    name="pageSize"
+                                >
+                                    <option>3</option>
+                                    <option selected>5</option>
+                                    <option>7</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                            <p class="text-sm text-gray-600">of 20</p>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex gap-x-2">
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    (click)="previousPage()"
+                                >
+                                    <svg
+                                        class="size-4 shrink-0"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m15 18-6-6 6-6" />
+                                    </svg>
+                                    Prev
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    (click)="nextPage()"
+                                >
+                                    Next
+                                    <svg
+                                        class="size-4 shrink-0"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m9 18 6-6-6-6" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Card -->
+</div>
+<!-- End Table Section -->

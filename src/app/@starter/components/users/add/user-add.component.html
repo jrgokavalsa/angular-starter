@@ -1,0 +1,157 @@
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <!-- Grid -->
+    <div class="relative">
+        <!-- Card -->
+        <div class="flex flex-col rounded-xl border p-4 sm:p-6 lg:p-10">
+            <h2 class="text-xl font-semibold text-gray-800">User details</h2>
+
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="mt-6 grid gap-4 lg:gap-6">
+                    <!-- Grid -->
+                    <div>
+                        <label
+                            for="hs-name-hire-us-1"
+                            class="mb-2 block text-sm font-medium text-gray-700"
+                            >Name</label
+                        >
+                        <input
+                            type="text"
+                            name="hs-name-hire-us-1"
+                            formControlName="name"
+                            id="hs-name-hire-us-1"
+                            class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                        />
+                    </div>
+                    <!-- End Grid -->
+
+                    <div>
+                        <label
+                            for="hs-work-email-hire-us-1"
+                            class="mb-2 block text-sm font-medium text-gray-700"
+                            >Work Email</label
+                        >
+                        <input
+                            type="email"
+                            name="hs-work-email-hire-us-1"
+                            formControlName="email"
+                            id="hs-work-email-hire-us-1"
+                            autocomplete="email"
+                            class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                        />
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
+                        <div>
+                            <label
+                                for="hs-role-hire-us-1"
+                                class="mb-2 block text-sm font-medium text-gray-700"
+                                >Role</label
+                            >
+                            <input
+                                type="text"
+                                name="hs-role-hire-us-1"
+                                formControlName="role"
+                                id="hs-role-hire-us-1"
+                                class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="hs-organization-hire-us-1"
+                                class="mb-2 block text-sm font-medium text-gray-700"
+                                >Organization</label
+                            >
+                            <input
+                                type="text"
+                                name="hs-organization-hire-us-1"
+                                formControlName="organization"
+                                id="hs-organization-hire-us-1"
+                                class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                            />
+                        </div>
+                    </div>
+                    <!-- End Grid -->
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-6">
+                        <div>
+                            <label
+                                for="hs-status-hire-us-1"
+                                class="mb-2 block text-sm font-medium text-gray-700"
+                                >Status</label
+                            >
+                            <input
+                                type="text"
+                                name="hs-status-hire-us-1"
+                                formControlName="status"
+                                id="hs-status-hire-us-1"
+                                class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="hs-portfolio-hire-us-1"
+                                class="mb-2 block text-sm font-medium text-gray-700"
+                                >Portfolio</label
+                            >
+                            <input
+                                type="text"
+                                name="hs-portfolio-hire-us-1"
+                                formControlName="portfolio"
+                                id="hs-portfolio-hire-us-1"
+                                class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="hs-createdOn-hire-us-1"
+                                class="mb-2 block text-sm font-medium text-gray-700"
+                                >Created On</label
+                            >
+                            <input
+                                type="text"
+                                name="hs-createdOn-hire-us-1"
+                                formControlName="createdOn"
+                                id="hs-createdOn-hire-us-1"
+                                class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                            />
+                        </div>
+                    </div>
+                    <!-- End Grid -->
+                    <div>
+                        <label
+                            for="hs-avatar-hire-us-1"
+                            class="mb-2 block text-sm font-medium text-gray-700"
+                            >Avatar</label
+                        >
+                        <input
+                            type="text"
+                            name="hs-avatar-hire-us-1"
+                            formControlName="avatar"
+                            id="hs-avatar-hire-us-1"
+                            class="block w-full rounded-lg border-gray-200 bg-gray-100 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                        />
+                    </div>
+                </div>
+                <div class="mt-6 grid">
+                    <button
+                        type="submit"
+                        class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-4 py-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                        [disabled]="!userForm.valid"
+                    >
+                        Save
+                    </button>
+                </div>
+            </form>
+            <!-- End Grid -->
+        </div>
+        <!-- End Card -->
+    </div>
+    <!-- End Col -->
+    <!-- End Grid -->
+</div>
+<!-- End Hire Us -->

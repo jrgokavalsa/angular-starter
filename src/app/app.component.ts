@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { UserListComponent } from './@starter/components/user-list/user-list.component';
+import { SortButton } from './@starter/components/action/button/button';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet,UserListComponent],
+    imports: [RouterOutlet, SortButton],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
