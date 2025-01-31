@@ -20,7 +20,7 @@ export class UserListComponent {
 
     protected readonly _page = signal<number>(1);
     protected readonly _limit = signal<number>(5);
-    protected selectionUsers = new SelectionModel<User>(true, []);
+    protected selectionUsers = new SelectionModel<User>(true, [],true,(o1,o2)=>o1.id===o2.id);
     userDeleteMutation = injectMutation(() => this.userService.deleteUser());
 
     /**
