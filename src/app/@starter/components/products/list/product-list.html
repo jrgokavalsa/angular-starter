@@ -1,0 +1,307 @@
+<!-- Table Section -->
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <!-- Card -->
+    <div class="flex flex-col">
+        <div class="-m-1.5 overflow-x-auto">
+            <div class="inline-block min-w-full p-1.5 align-middle">
+                <div
+                    class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
+                >
+                    <!-- Header -->
+                    <div
+                        class="grid px-6 pt-3 md:flex md:items-center md:justify-between"
+                    >
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                Users
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid gap-4 border-b border-gray-200 px-6 py-3 md:flex md:items-center md:justify-between"
+                    >
+                        <!-- Input -->
+                        <div class="sm:col-span-1 md:grow">
+                            <label
+                                for="hs-as-table-product-review-search"
+                                class="sr-only"
+                                >Search</label
+                            >
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    id="hs-as-table-product-review-search"
+                                    name="hs-as-table-product-review-search"
+                                    class="block w-full rounded-lg border-gray-200 px-3 py-2 ps-11 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                    placeholder="Search"
+                                />
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4"
+                                >
+                                    <svg
+                                        class="size-4 text-gray-400"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Input -->
+
+                        <div class="sm:col-span-2 md:grow">
+                            <div class="flex justify-end gap-x-2">
+                                <div
+                                    class="hs-dropdown relative inline-block [--placement:bottom-right]"
+                                >
+                                    <button
+                                        id="hs-as-table-table-export-dropdown"
+                                        type="button"
+                                        class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                        aria-haspopup="menu"
+                                        aria-expanded="false"
+                                        aria-label="Dropdown"
+                                    >
+                                        <svg
+                                            class="size-3 shrink-0"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="currentColor"
+                                            viewBox="0 0 16 16"
+                                        >
+                                            <path
+                                                d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+                                            />
+                                            <path
+                                                d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+                                            />
+                                        </svg>
+                                        Export
+                                    </button>
+                                </div>
+
+                                <div
+                                    class="hs-dropdown relative inline-block [--placement:bottom-right]"
+                                    data-hs-dropdown-auto-close="inside"
+                                >
+                                    <button
+                                        id="hs-as-table-table-filter-dropdown"
+                                        type="button"
+                                        class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                        aria-haspopup="menu"
+                                        aria-expanded="false"
+                                        aria-label="Dropdown"
+                                    >
+                                        <svg
+                                            class="size-3.5 shrink-0"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <path d="M3 6h18" />
+                                            <path d="M7 12h10" />
+                                            <path d="M10 18h4" />
+                                        </svg>
+                                        Filter
+                                        <span
+                                            class="border-s border-gray-200 ps-2 text-xs font-semibold text-blue-600"
+                                        >
+                                            1
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid gap-4 border-b border-gray-200 px-6 py-3 md:flex md:items-center md:justify-between"
+                    >
+                        <div class="text-sm font-semibold text-gray-600">
+                            Show only:
+                        </div>
+                        <div class="sm:col-span-2 md:grow">
+                            <div class="flex gap-x-6">
+                                <div class="flex">
+                                    <input
+                                        type="radio"
+                                        name="hs-radio-group"
+                                        class="mt-0.5 shrink-0 rounded-full border-gray-200 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                        id="hs-radio-group-1"
+                                        value="Beauty"
+                                        (change)="onCategoryTypeChange($event)"
+                                    />
+                                    <label
+                                        for="hs-radio-group-1"
+                                        class="ms-2 text-sm text-gray-500"
+                                        >Beauty</label
+                                    >
+                                </div>
+
+                                <div class="flex">
+                                    <input
+                                        type="radio"
+                                        name="hs-radio-group"
+                                        class="mt-0.5 shrink-0 rounded-full border-gray-200 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                        id="hs-radio-group-2"
+                                        value="Furniture"
+                                        (change)="onCategoryTypeChange($event)"
+                                    />
+                                    <label
+                                        for="hs-radio-group-2"
+                                        class="ms-2 text-sm text-gray-500"
+                                        >Furniture</label
+                                    >
+                                </div>
+
+                                <div class="flex">
+                                    <input
+                                        type="radio"
+                                        name="hs-radio-group"
+                                        class="mt-0.5 shrink-0 rounded-full border-gray-200 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                        id="hs-radio-group-3"
+                                        value="Groceries"
+                                        (change)="onCategoryTypeChange($event)"
+                                    />
+                                    <label
+                                        for="hs-radio-group-3"
+                                        class="ms-2 text-sm text-gray-500"
+                                        >Groceries</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Header -->
+
+                    <!-- Table -->
+                    @if (
+                        productsQuery.isLoading() ||
+                        categoryProductsQuery.isLoading()
+                    ) {
+                        <div
+                            class="flex min-h-[400px] flex-auto flex-col items-center justify-center p-4 md:p-5"
+                        >
+                            <div class="flex justify-center">
+                                <div
+                                    class="inline-block size-6 animate-spin rounded-full border-[3px] border-current border-t-transparent text-blue-600 dark:text-blue-500"
+                                    role="status"
+                                    aria-label="loading"
+                                >
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    } @else {
+                        <product-table [productTable]="table" />
+                    }
+                    <!-- End Table -->
+
+                    <!-- Footer -->
+                    <div
+                        class="grid gap-3 border-t border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between"
+                    >
+                        <div>
+                            <span class="text-sm text-gray-700">
+                                Showing
+                                <span class="font-semibold text-gray-900"
+                                    >1</span
+                                >
+                                to
+                                <span class="font-semibold text-gray-900"
+                                    >10</span
+                                >
+                                of
+                                <span class="font-semibold text-gray-900"
+                                    >100</span
+                                >
+                                Entries
+                            </span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex gap-x-2">
+                                <!-- Go To Page -->
+                                <div class="flex items-center gap-x-2">
+                                    <span
+                                        class="whitespace-nowrap text-sm text-gray-800"
+                                    >
+                                        Go to
+                                    </span>
+                                    <input
+                                        type="number"
+                                        class="block min-h-[38px] w-12 rounded-lg border-gray-200 px-2.5 py-2 text-center text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                                    />
+                                    <span
+                                        class="whitespace-nowrap text-sm text-gray-800"
+                                    >
+                                        page
+                                    </span>
+                                </div>
+                                <!-- End Go To Page -->
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-2 py-1.5 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                >
+                                    <svg
+                                        class="size-4 shrink-0"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m15 18-6-6 6-6" />
+                                    </svg>
+                                    Prev
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-2 py-1.5 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                >
+                                    Next
+                                    <svg
+                                        class="size-4 shrink-0"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="m9 18 6-6-6-6" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Card -->
+</div>
+<!-- End Table Section -->

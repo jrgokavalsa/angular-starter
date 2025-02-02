@@ -1,0 +1,246 @@
+<ng-container>
+    <!-- Table -->
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            @for (
+                headerGroup of table.getHeaderGroups();
+                track headerGroup.id
+            ) {
+                <tr>
+                    @for (header of headerGroup.headers; track header.id) {
+                        @if (header.column.id === 'id') {
+                            <ng-container
+                                *ngTemplateOutlet="
+                                    idHeader;
+                                    context: { $implicit: header.getContext() }
+                                "
+                            />
+                        } @else {
+                            <th scope="col" class="py-3 ps-6 text-start">
+                                <ng-container
+                                    *flexRender="
+                                        header.column.columnDef.header;
+                                        props: header.getContext();
+                                        let header
+                                    "
+                                >
+                                    <div class="flex items-center gap-x-2">
+                                        <span
+                                            class="text-xs font-semibold uppercase tracking-wide text-gray-800"
+                                        >
+                                            {{ header }}
+                                        </span>
+                                    </div>
+                                </ng-container>
+                            </th>
+                        }
+                    }
+                </tr>
+            }
+        </thead>
+
+        <tbody class="divide-y divide-gray-200">
+            @for (row of table.getRowModel().rows; track row.id) {
+                <tr>
+                    @for (cell of row.getVisibleCells(); track cell.id) {
+                        @switch (cell.column.id) {
+                            @case ('id') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        id;
+                                        context: {
+                                            row: cell.row,
+                                        }
+                                    "
+                                />
+                            }
+                            @case ('title') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        title;
+                                        context: {
+                                            $implicit: cell,
+                                            row: cell.row.original,
+                                        }
+                                    "
+                                />
+                            }
+                            @case ('description') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        description;
+                                        context: { $implicit: cell }
+                                    "
+                                />
+                            }
+                            @case ('category') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        category;
+                                        context: {
+                                            $implicit: cell,
+                                            row: cell.row.original,
+                                        }
+                                    "
+                                />
+                            }
+                            @case ('price') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        price;
+                                        context: { $implicit: cell }
+                                    "
+                                />
+                            }
+                            @case ('stock') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        stock;
+                                        context: { $implicit: cell }
+                                    "
+                                />
+                            }
+                            @case ('action') {
+                                <ng-container
+                                    *ngTemplateOutlet="
+                                        action;
+                                        context: { $implicit: cell }
+                                    "
+                                />
+                            }
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- End Table -->
+</ng-container>
+
+<!--checkbox Header column-->
+<ng-template #idHeader let-context>
+    <th scope="col" class="py-3 ps-6 text-start">
+        <label for="hs-at-with-checkboxes-main" class="flex">
+            <input
+                type="checkbox"
+                class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                id="hs-at-with-checkboxes-main"
+                [checked]="context.table.getIsAllRowsSelected()"
+                [indeterminate]="context.table.getIsSomeRowsSelected()"
+                (change)="context.table.toggleAllRowsSelected()"
+            />
+            <span class="sr-only">Checkbox</span>
+        </label>
+    </th>
+</ng-template>
+<!-- End checkbox Header column-->
+
+<!-- Checkbox column-->
+<ng-template #id let-row="row">
+    <td class="size-px whitespace-nowrap">
+        <div class="py-3 ps-6">
+            <label for="product-with-checkboxes-{{ row.id }}" class="flex">
+                <input
+                    type="checkbox"
+                    class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                    id="product-with-checkboxes-{{ row.id }}"
+                    [checked]="row.getIsSelected()"
+                    (change)="row.getToggleSelectedHandler()($event)"
+                />
+                <span class="sr-only">Checkbox</span>
+            </label>
+        </div>
+    </td>
+</ng-template>
+<!-- End Checkbox column-->
+
+<!--Title column-->
+<ng-template #title let-context let-row="row">
+    <td class="size-px whitespace-nowrap align-top">
+        <a class="block p-6" href="#">
+            <div class="flex items-center gap-x-4">
+                <img
+                    class="size-[38px] shrink-0 rounded-lg"
+                    [attr.src]="row.thumbnail"
+                    alt="Product Image"
+                />
+                <div>
+                    <span class="block text-sm font-semibold text-gray-800">
+                        {{ row.title }}
+                    </span>
+                </div>
+            </div>
+        </a>
+    </td>
+</ng-template>
+<!--End Title column-->
+
+<!--Description column-->
+<ng-template #description let-context>
+    <td class="h-px w-72 min-w-72 align-top">
+        <div class="px-6 py-3">
+            <span class="block text-sm text-gray-500">
+                {{ context.row.original.description }}
+            </span>
+        </div>
+    </td>
+</ng-template>
+<!--End Description column-->
+
+<ng-template #category let-context let-row="row">
+    <td class="h-px w-36 whitespace-nowrap">
+        <div class="px-6 py-3">
+            <span class="block text-sm font-semibold text-gray-800">
+                {{ row.category | titlecase }}
+            </span>
+            <span class="block text-sm text-gray-500">{{ row.brand }}</span>
+        </div>
+    </td>
+</ng-template>
+
+<ng-template #price let-context>
+    <td class="size-px whitespace-nowrap px-6 py-3">
+        <span class="text-sm text-gray-800"> {{ context.getValue() }} </span>
+    </td>
+</ng-template>
+
+<ng-template #stock let-context>
+    <td class="size-px whitespace-nowrap px-6 py-3">
+        <span class="text-sm text-gray-800"> {{ context.getValue() }} </span>
+    </td>
+</ng-template>
+
+<!--action column-->
+<ng-template #action>
+    <td class="size-px whitespace-nowrap">
+        <button
+            type="button"
+            class="text-white-800 inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-gray-100 px-4 py-3 text-sm font-medium hover:bg-gray-200 focus:bg-blue-200 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+        >
+            Add to cart
+            <svg
+                class="size-4 shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="m5 11 4-7"></path>
+                <path d="m19 11-4-7"></path>
+                <path d="M2 11h20"></path>
+                <path
+                    d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"
+                ></path>
+                <path d="m9 11 1 9"></path>
+                <path d="M4.5 15.5h15"></path>
+                <path d="m15 11-1 9"></path>
+            </svg>
+        </button>
+    </td>
+</ng-template>
+<!--action end column-->

@@ -4,9 +4,9 @@ import { booleanAttribute, Component, input } from '@angular/core';
     selector: 'suspense',
     template: `
         @if (loading()) {
-            <ng-container *ngTemplateOutlet="loading"/>
+            <ng-container *ngTemplateOutlet="loading" />
         } @else if (error()) {
-            <ng-container *ngTemplateOutlet="error"/>
+            <ng-container *ngTemplateOutlet="error" />
         } @else {
             <ng-content />
         }

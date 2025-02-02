@@ -7,20 +7,26 @@ import {
 } from '@tanstack/angular-query-experimental';
 import { User } from '../../../model/user';
 import { UserService } from '../../../service/user-list.service';
+import { SortHeader } from '../../action/button/button';
 import { UserBadgeComponent } from '../status-badge/badge.component';
 
 @Component({
     selector: 'app-user-list',
     templateUrl: './user-list.component.html',
     standalone: true,
-    imports: [RouterLink, UserBadgeComponent],
+    imports: [RouterLink, UserBadgeComponent, SortHeader],
 })
 export class UserListComponent {
     userService = inject(UserService);
 
     protected readonly _page = signal<number>(1);
     protected readonly _limit = signal<number>(5);
-    protected selectionUsers = new SelectionModel<User>(true, [],true,(o1,o2)=>o1.id===o2.id);
+    protected selectionUsers = new SelectionModel<User>(
+        true,
+        [],
+        true,
+        (o1, o2) => o1.id === o2.id
+    );
     userDeleteMutation = injectMutation(() => this.userService.deleteUser());
 
     /**

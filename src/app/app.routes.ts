@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ProductService } from './@starter/service/product.service';
 
 export const routes: Routes = [
     {
@@ -24,7 +25,15 @@ export const routes: Routes = [
         path: 'users/:userId',
         loadComponent: () =>
             import('./@starter/components/users/edit/user-edit.component').then(
-                (x) => x.UserEditComponent
+                (c) => c.UserEditComponent
             ),
+    },
+    {
+        path: 'products',
+        loadComponent: () =>
+            import('./@starter/components/products/list/product-list').then(
+                (c) => c.ProductListComponent
+            ),
+        providers: [ProductService],
     },
 ];
