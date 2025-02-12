@@ -9,7 +9,8 @@
                 >
                     <!-- Header -->
                     <div
-                        class="grid gap-3 border-b border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between"
+                        class="grid gap-3 border-b border-gray-200 px-6 py-4 md:flex md:items-center
+                            md:justify-between"
                     >
                         <div>
                             <h2 class="text-xl font-semibold text-gray-800">
@@ -23,7 +24,10 @@
                         <div>
                             <div class="inline-flex gap-x-2">
                                 <a
-                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-red-500 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3
+                                        py-2 text-sm font-medium text-red-500 shadow-sm hover:bg-gray-50
+                                        focus:bg-gray-50 focus:outline-none disabled:pointer-events-none
+                                        disabled:opacity-50"
                                     (click)="onDelete()"
                                 >
                                     <svg
@@ -53,14 +57,20 @@
                                     }})
                                 </a>
                                 <a
-                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3
+                                        py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50
+                                        focus:bg-gray-50 focus:outline-none disabled:pointer-events-none
+                                        disabled:opacity-50"
                                     href="#"
                                 >
                                     View all
                                 </a>
 
                                 <a
-                                    class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-transparent
+                                        bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700
+                                        focus:bg-blue-700 focus:outline-none disabled:pointer-events-none
+                                        disabled:opacity-50"
                                     [routerLink]="['/users', 'new']"
                                 >
                                     <svg
@@ -91,7 +101,8 @@
                         >
                             <div class="flex justify-center">
                                 <div
-                                    class="inline-block size-6 animate-spin rounded-full border-[3px] border-current border-t-transparent text-blue-600 dark:text-blue-500"
+                                    class="inline-block size-6 animate-spin rounded-full border-[3px] border-current
+                                        border-t-transparent text-blue-600 dark:text-blue-500"
                                     role="status"
                                     aria-label="loading"
                                 >
@@ -154,7 +165,8 @@
                                         >
                                             <input
                                                 type="checkbox"
-                                                class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                                class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500
+                                                    disabled:pointer-events-none disabled:opacity-50"
                                                 id="hs-at-with-checkboxes-main"
                                                 (change)="
                                                     $event
@@ -261,7 +273,8 @@
                                                 >
                                                     <input
                                                         type="checkbox"
-                                                        class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                                                        class="shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500
+                                                            disabled:pointer-events-none disabled:opacity-50"
                                                         id="hs-at-with-checkboxes-{{
                                                             user.id
                                                         }}"
@@ -374,7 +387,8 @@
                                         <td class="size-px whitespace-nowrap">
                                             <div class="px-6 py-1.5">
                                                 <a
-                                                    class="inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline focus:underline focus:outline-none"
+                                                    class="inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2
+                                                        hover:underline focus:underline focus:outline-none"
                                                     routerLink="{{ user.id }}"
                                                 >
                                                     Edit
@@ -389,13 +403,15 @@
                     }
                     <!-- Footer -->
                     <div
-                        class="grid gap-3 border-t border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between"
+                        class="grid gap-3 border-t border-gray-200 px-6 py-4 md:flex md:items-center
+                            md:justify-between"
                     >
                         <div class="inline-flex items-center gap-x-2">
                             <p class="text-sm text-gray-600">Showing:</p>
                             <div class="max-w-sm space-y-3">
                                 <select
-                                    class="block w-full rounded-lg border-gray-200 px-3 py-2 pe-9 text-sm outline outline-1 focus:border-blue-500 focus:ring-blue-500"
+                                    class="block w-full rounded-lg border-gray-200 px-3 py-2 pe-9 text-sm outline outline-1
+                                        focus:border-blue-500 focus:ring-blue-500"
                                     (change)="onLimitChange($event)"
                                     id="pageSize"
                                     name="pageSize"
@@ -413,7 +429,10 @@
                             <div class="inline-flex gap-x-2">
                                 <button
                                     type="button"
-                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3
+                                        py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50
+                                        focus:bg-gray-50 focus:outline-none disabled:pointer-events-none
+                                        disabled:opacity-50"
                                     (click)="previousPage()"
                                 >
                                     <svg
@@ -435,7 +454,10 @@
 
                                 <button
                                     type="button"
-                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                    class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-3
+                                        py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50
+                                        focus:bg-gray-50 focus:outline-none disabled:pointer-events-none
+                                        disabled:opacity-50"
                                     (click)="nextPage()"
                                 >
                                     Next

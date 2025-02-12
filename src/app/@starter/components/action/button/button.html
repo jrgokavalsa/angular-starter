@@ -1,5 +1,6 @@
 <div
-    class="relative flex inline-flex items-center hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+    class="relative flex inline-flex items-center hover:bg-gray-50 focus:bg-gray-50
+        focus:outline-none"
     cdkOverlayOrigin
     #trigger="cdkOverlayOrigin"
     (click)="toggleMenu()"
@@ -11,7 +12,8 @@
     <div
         id="sort-header-icon"
         type="button"
-        class="inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-gray-800 disabled:pointer-events-none disabled:opacity-50"
+        class="inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium
+            text-gray-800 disabled:pointer-events-none disabled:opacity-50"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-label="Dropdown"
@@ -52,94 +54,99 @@
     >
         <div class="space-y-0.5 p-1">
             @if (enableSort()) {
-                <div
-                    class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
-                    href="#"
-                    role="menuitem"
-                    (click)="handleSort('asc')"
+            <div
+                class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800
+                    hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                role="menuitem"
+                (click)="handleSort('asc')"
+            >
+                <svg
+                    class="size-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                 >
-                    <svg
-                        class="size-4 shrink-0"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="m5 12 7-7 7 7"></path>
-                        <path d="M12 19V5"></path>
-                    </svg>
-                    Sort ascending
-                </div>
-                <a
-                    class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
-                    href="#"
+                    <path d="m5 12 7-7 7 7"></path>
+                    <path d="M12 19V5"></path>
+                </svg>
+                Sort ascending
+            </div>
+            <div
+                class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800
+                    hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                role="menuitem"
+                (click)="handleSort('desc')"
+            >
+                <svg
+                    class="size-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                 >
-                    <svg
-                        class="size-4 shrink-0"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M12 5v14"></path>
-                        <path d="m19 12-7 7-7-7"></path>
-                    </svg>
-                    Sort descending
-                </a>
-            }
-            @if (enablePosition()) {
-                <a
-                    class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
-                    href="#"
+                    <path d="M12 5v14"></path>
+                    <path d="m19 12-7 7-7-7"></path>
+                </svg>
+                Sort descending
+            </div>
+            } @if (enablePosition()) {
+            <div
+                class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800
+                    hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                role="menuitem"
+                (click)="handlePosition('left')"
+            >
+                <svg
+                    class="size-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                 >
-                    <svg
-                        class="size-4 shrink-0"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
-                    </svg>
-                    Move left
-                </a>
-                <a
-                    class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
-                    href="#"
+                    <path d="m12 19-7-7 7-7"></path>
+                    <path d="M19 12H5"></path>
+                </svg>
+                Move left
+            </div>
+            <div
+                class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800
+                    hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                role="menuitem"
+                (click)="handlePosition('right')"
+            >
+                <svg
+                    class="size-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                 >
-                    <svg
-                        class="size-4 shrink-0"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M5 12h14"></path>
-                        <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                    Move right
-                </a>
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+                Move right
+            </div>
             }
         </div>
     </div>

@@ -4,8 +4,10 @@ import {
     createAngularTable,
     getCoreRowModel,
     getPaginationRowModel,
+    getSortedRowModel,
     PaginationState,
     RowSelectionState,
+    SortingState,
 } from '@tanstack/angular-table';
 import { ProductService } from '../../../service/product.service';
 import { ProductTable } from './table/product-table';
@@ -41,6 +43,7 @@ export class ProductListComponent {
         pageIndex: 0,
         pageSize: 5,
     });
+    private readonly sortingState = signal<SortingState>([]);
 
     table = createAngularTable(() => ({
         data: this.categoryTypeFilter()
@@ -50,6 +53,7 @@ export class ProductListComponent {
         state: {
             rowSelection: this.rowSelection(),
             pagination: this.pagination(),
+            sorting: this.sortingState(),
         },
         enableRowSelection: true,
         onRowSelectionChange: (updaterOrValue) => {
@@ -59,8 +63,16 @@ export class ProductListComponent {
                     : updaterOrValue
             );
         },
+        onSortingChange: (updaterOrValue) => {
+            this.sortingState.set(
+                typeof updaterOrValue === 'function'
+                    ? updaterOrValue(this.sortingState())
+                    : updaterOrValue
+            );
+        },
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
     }));
 
     onCategoryTypeChange(event: Event) {

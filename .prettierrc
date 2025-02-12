@@ -9,14 +9,7 @@
     "arrowParens": "always",
     "plugins": [
         "prettier-plugin-organize-imports",
-        "prettier-plugin-tailwindcss"
-    ],
-    "overrides": [
-        {
-            "files": "*.html",
-            "options": {
-                "parser": "angular"
-            }
-        }
+        "prettier-plugin-tailwindcss",
+        "prettier-plugin-classnames"
     ]
 }
