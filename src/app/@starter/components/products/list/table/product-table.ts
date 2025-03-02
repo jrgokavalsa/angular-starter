@@ -6,7 +6,6 @@ import { SortHeader } from '../../../action/button/button';
 
 @Component({
     selector: 'product-table',
-    standalone: true,
     templateUrl: './product-table.html',
     imports: [FlexRenderDirective, NgTemplateOutlet, TitleCasePipe, SortHeader],
 })

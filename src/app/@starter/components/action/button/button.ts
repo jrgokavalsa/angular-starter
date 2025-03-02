@@ -15,7 +15,6 @@ export type SortHeaderArrowPosition = 'after' | 'before';
     selector: '[sort-header]',
     exportAs: 'sortHeader',
     templateUrl: './button.html',
-    standalone: true,
     imports: [OverlayModule],
 })
 export class SortHeader {

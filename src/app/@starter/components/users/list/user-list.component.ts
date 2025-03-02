@@ -1,5 +1,10 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, inject, signal } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    inject,
+    signal,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
     injectMutation,
@@ -7,14 +12,14 @@ import {
 } from '@tanstack/angular-query-experimental';
 import { User } from '../../../model/user';
 import { UserService } from '../../../service/user-list.service';
-import { SortHeader } from '../../action/button/button';
 import { UserBadgeComponent } from '../status-badge/badge.component';
 
 @Component({
     selector: 'app-user-list',
     templateUrl: './user-list.component.html',
     standalone: true,
-    imports: [RouterLink, UserBadgeComponent, SortHeader],
+    imports: [RouterLink, UserBadgeComponent],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserListComponent {
     userService = inject(UserService);

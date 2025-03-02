@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
     NonNullableFormBuilder,
     ReactiveFormsModule,
@@ -12,6 +12,7 @@ import { UserService } from '../../../service/user-list.service';
     selector: 'app-user-add',
     templateUrl: './user-add.component.html',
     imports: [ReactiveFormsModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserAddComponent {
     private fb = inject(NonNullableFormBuilder);

@@ -18,8 +18,6 @@ export type categoryType = 'Beauty' | 'Fruniture' | 'Groceries';
 @Component({
     selector: 'product-list',
     templateUrl: './product-list.html',
-    standalone: true,
-    styles: ``,
     imports: [ProductTable],
 })
 export class ProductListComponent {

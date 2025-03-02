@@ -1,4 +1,5 @@
 import {
+    ChangeDetectionStrategy,
     Component,
     computed,
     effect,
@@ -25,6 +26,7 @@ import { UserService } from '../../../service/user-list.service';
     templateUrl: './user-edit.component.html',
     imports: [ReactiveFormsModule],
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserEditComponent implements OnInit {
     // This component is the actual user edit component.
