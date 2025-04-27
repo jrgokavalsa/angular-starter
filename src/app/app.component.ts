@@ -4,7 +4,7 @@ import { UserComponent } from './@starter/components/users/user.component';
 
 @Component({
     selector: 'app-root',
-    imports: [UserComponent,RouterOutlet],
+    imports: [RouterOutlet],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })

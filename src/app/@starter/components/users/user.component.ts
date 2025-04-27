@@ -5,28 +5,30 @@ import { selectUsers, selectUsersError, selectUsersLoading } from "../../../stor
 import * as UserListPageActions from "../../../store/users/actions/user-list-page.action";
 import { AsyncPipe, JsonPipe } from "@angular/common";
 import { RouterLink } from "@angular/router";
+import { UserFacade } from "./user.facade";
 
 
 @Component({
     selector: "app-user",
     templateUrl: "./user.component.html",
     standalone: true,
-    imports:[AsyncPipe,JsonPipe,RouterLink]
+    imports:[AsyncPipe,RouterLink],
+    providers: [
+        UserFacade
+    ]
     })
 export class UserComponent implements OnDestroy{
-   private store = inject(Store<UserListState>);
 
-    usersState$ = this.store.select(state => ({
-        users: selectUsers(state),
-        error: selectUsersError(state),
-        loading: selectUsersLoading(state)
-    }));
+    #userFacade = inject(UserFacade);
+    usersState$ = this.#userFacade.usersState$;
+   
+    
 
     constructor() {
-        this.store.dispatch(UserListPageActions.loadUsers());
+        this.#userFacade.loadUsers();
     }
 
     ngOnDestroy(): void {
-        this.store.dispatch(UserListPageActions.resetUsersState());
+        this.#userFacade.resetUsers();
     }
 }
