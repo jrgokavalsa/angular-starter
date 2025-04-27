@@ -13,6 +13,7 @@ import { UserFacade } from './user.facade';
 export class UserComponent implements OnDestroy {
     #userFacade = inject(UserFacade);
     usersState$ = this.#userFacade.usersState$;
+    userId = injectParams('id');
 
     constructor() {
         this.#userFacade.loadUsers();
@@ -21,4 +22,7 @@ export class UserComponent implements OnDestroy {
     ngOnDestroy(): void {
         this.#userFacade.resetUsers();
     }
+}
+function injectParams(arg0: string) {
+    throw new Error('Function not implemented.');
 }
