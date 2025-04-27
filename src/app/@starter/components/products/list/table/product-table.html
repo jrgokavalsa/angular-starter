@@ -20,6 +20,7 @@
                         class="py-3 ps-6 text-start"
                         sort-header
                         (onSortChange)="header.column.toggleSorting()"
+                        [sortDirection]="header.column.getAutoSortDir()"
                     >
                         <ng-container
                             *flexRender="

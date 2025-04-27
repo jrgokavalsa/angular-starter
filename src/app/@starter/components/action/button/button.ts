@@ -24,6 +24,9 @@ export class SortHeader {
     enableSort = input(true, { transform: booleanAttribute });
     enablePosition = input(true, { transform: booleanAttribute });
 
+    sortDirection = input<SortDirection>();
+    positionDirection = input<positionDirection>();
+
     /** output signal to emit sort and position changes */
     onSortChange = output<SortDirection>();
     onPositionChange = output<positionDirection>();

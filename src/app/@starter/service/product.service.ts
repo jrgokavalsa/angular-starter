@@ -1,19 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { queryOptions } from '@tanstack/angular-query-experimental';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, map } from 'rxjs';
 import { categoryType } from '../components/products/list/product-list';
+import { z } from 'zod';
 
-export type Product = {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    price: number;
-    stock: number;
-    brand: string;
-    thumbnail: string;
-};
+const Product = z.object({
+    id: z.number(),
+    title: z.string(),
+    description: z.string(),
+    category: z.string(),
+    price: z.number(),
+    stock: z.number(),
+    brand: z.string(),
+    thumbnail: z.string(),
+});
+export type Product = z.infer<typeof Product>;
+
 export type ProductPage = {
     products: Array<Product>;
     total: number;
