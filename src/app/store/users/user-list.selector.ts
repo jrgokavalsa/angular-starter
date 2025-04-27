@@ -1,9 +1,8 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { UserListState } from "./user-list.reducer";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { UserListState } from './user-list.reducer';
 
-
-
-export const userListSelector = createFeatureSelector<UserListState>('usersList');
+export const userListSelector =
+    createFeatureSelector<UserListState>('usersList');
 
 export const selectUsers = createSelector(
     userListSelector,
@@ -19,4 +18,3 @@ export const selectUsersError = createSelector(
     userListSelector,
     (state) => state.error
 );
-
