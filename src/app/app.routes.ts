@@ -12,12 +12,16 @@ export const routes: Routes = [
             import('./@starter/components/users/user.component').then(
                 (m) => m.UserComponent
             ),
+       children: [
+            {
+                path: ':id',
+                loadComponent: () =>
+                    import('./@starter/components/users/user-detail/user-detail.component').then(
+                        (m) => m.UserDetailComponent
+                    ),
+            },
+        ],
     },
-    {
-        path: 'users/:id',
-        loadComponent: () =>
-            import(
-                './@starter/components/users/user-detail/user-detail.component'
-            ).then((m) => m.UserDetailComponent),
-    },
+ 
+  
 ];

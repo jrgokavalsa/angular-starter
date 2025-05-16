@@ -1,13 +1,14 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnDestroy } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { UserFacade } from './user.facade';
+import{injectParams} from 'ngxtension/inject-params';
 
 @Component({
     selector: 'app-user',
     templateUrl: './user.component.html',
     standalone: true,
-    imports: [AsyncPipe, RouterLink],
+    imports: [AsyncPipe, RouterLink,RouterOutlet],
     providers: [UserFacade],
 })
 export class UserComponent implements OnDestroy {
@@ -22,7 +23,4 @@ export class UserComponent implements OnDestroy {
     ngOnDestroy(): void {
         this.#userFacade.resetUsers();
     }
-}
-function injectParams(arg0: string) {
-    throw new Error('Function not implemented.');
 }

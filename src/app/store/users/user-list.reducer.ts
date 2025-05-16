@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as UserListPageActions from './actions/user-list-page.action';
+import { UserListApiActions, UserListPageActions } from './actions';
 
 export interface User {
     id: number;
@@ -10,6 +10,12 @@ export interface User {
 
 export interface UserListState {
     users: User[];
+    loading: boolean;
+    error: string | null;
+}
+
+export interface UserState {
+    user: User;
     loading: boolean;
     error: string | null;
 }
@@ -42,5 +48,30 @@ export const userListReducer = createReducer(
         users: [],
         loading: false,
         error: null,
+    }))
+);
+
+export const initialUserState: UserState = {
+    user: {} as User,
+    loading: false,
+    error: null,
+};
+export const userByIdReducer = createReducer(
+    initialUserState,
+    on(UserListApiActions.loadUserById, (state) => ({
+        ...state,
+        loading: true,
+        error: null,
+    })),
+    on(UserListApiActions.loadUserByIdSuccess, (state, { user }) => ({
+        ...state,
+        user: user,
+        loading: false,
+        error: null,
+    })),
+    on(UserListApiActions.loadUserByIdFailure, (state, { error }) => ({
+        ...state,
+        loading: false,
+        error,
     }))
 );
