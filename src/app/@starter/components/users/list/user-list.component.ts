@@ -17,7 +17,6 @@ import { UserBadgeComponent } from '../status-badge/badge.component';
 @Component({
     selector: 'app-user-list',
     templateUrl: './user-list.component.html',
-    standalone: true,
     imports: [RouterLink, UserBadgeComponent],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -25,7 +25,6 @@ import { UserService } from '../../../service/user-list.service';
     selector: 'app-user-edit',
     templateUrl: './user-edit.component.html',
     imports: [ReactiveFormsModule],
-    standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserEditComponent implements OnInit {

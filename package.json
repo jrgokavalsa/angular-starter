@@ -19,7 +19,7 @@
     "@angular/platform-browser": "^19.2.8",
     "@angular/platform-browser-dynamic": "^19.2.8",
     "@angular/router": "^19.2.8",
-    "@tanstack/angular-query-experimental": "^5.62.13",
+    "@tanstack/angular-query-experimental": "^5.76.0",
     "@tanstack/angular-table": "^8.21.0",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.9",
